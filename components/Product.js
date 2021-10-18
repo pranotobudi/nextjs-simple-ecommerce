@@ -1,8 +1,19 @@
 import { StarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
-
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../redux/basketSlice";
 
 function Product({id, title, price, description, category, image, rating}){
+    const dispatch = useDispatch();
+
+    const addItemToBasket = () => {
+        const product = {
+            id, title, price, rating, description, category, image,
+        };
+     
+        dispatch(addToBasket(product))
+    }
+
     return (
         <div className="relative flex flex-col m-5 bg-white z-30 p-10">
             <Image src={image} height={200} width={200} objectFit="contain" />
@@ -16,7 +27,7 @@ function Product({id, title, price, description, category, image, rating}){
             <div className="inline-block self-center">
                 {`$` + price}
             </div>
-            <button className="mt-auto button">Add to Basket</button>
+            <button onClick={addItemToBasket} className="mt-auto button">Add to Basket</button>
 
         </div>
     );
