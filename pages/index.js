@@ -20,7 +20,14 @@ export default function Home({products}) {
 
 
 export async function getServerSideProps(context){
-  const products = myDummyProducts
+  const response = await fetch('http://localhost:8080/api/v1/products')
+  .then(res=>res.json()); 
+
+  const products = response["data"]
+  console.log("PRODUCTS: ", products)
+  
+
+  // const products = myDummyProducts
   return {
     props: {
       products,
