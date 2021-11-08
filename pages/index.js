@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import ProductContainer from "../components/ProductContainer";
-import {myDummyProducts} from "/public/dummyData"
+// import {myDummyProducts} from "/public/dummyData"
 export default function Home({products}) {
   return (
     <div className="bg-blue-100">
