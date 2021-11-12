@@ -5,9 +5,20 @@ import {
 } from "@heroicons/react/outline";
 import {useSelector} from "react-redux";
 import {selectItems} from "../redux/basketSlice"
+import { userService } from 'pages/services/user.service';
+import { useRouter } from 'next/router';
 
 function Header(){
     const items = useSelector(selectItems);
+    const router = useRouter();
+
+    function signIn(){
+        router.push('login');
+    }
+    function signOut(){
+        userService.setUserSignOut();
+        router.push('/');
+    }
 
     return (
         <div>
@@ -32,23 +43,32 @@ function Header(){
             
                 {/*Account & basket*/}
                 <div className="text-white flex item-center text-xs space-x-6 mx-6 whitespace-nowrap">
-                <div>
-                    <p>
-                        {/* {session ? `Hello, ${session.user.name}`:`Sign In`} */}
-                        Hello, Buddy
-                    </p>
-                    <p className="font-extrabold md:text-sm">Account</p>
-                </div>
-            
-                {/* <div onClick={()=>router.push("/checkout")} className="relative link flex items-center"> */}
-                <div className="relative link flex items-center">
-                    <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
-                        {items.length}
-                        {/* 0 */}
-                    </span>
-                    <ShoppingCartIcon className="h-10"/>
-                    <p className="hidden md:inline font-extrabold md:text-sm">Basket</p>
-                </div>
+                    {/* <div>
+                        <p>
+                            Hello, Buddy
+                        </p>
+                        <p className="font-extrabold md:text-sm">Account</p>
+                    </div> */}
+                    
+                    <div onClick={userService.isSessionActive() ?  signOut : signIn} className="link">
+                        <p>
+                            {userService.isSessionActive() ? `Sign Out`:`Sign In`}
+                        </p>
+                        <p>
+                            {userService.isSessionActive() ? `Hello, ${userService.userData.username}`:`Hello`}
+                        </p>
+                        {/* <p className="font-extrabold md:text-sm">Account</p> */}
+                    </div>
+                
+                    {/* <div onClick={()=>router.push("/checkout")} className="relative link flex items-center"> */}
+                    <div className="relative link flex items-center">
+                        <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
+                            {items.length}
+                            {/* 0 */}
+                        </span>
+                        <ShoppingCartIcon className="h-10"/>
+                        <p className="hidden md:inline font-extrabold md:text-sm">Basket</p>
+                    </div>
             
                 </div>
             

@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
-import {Link}  from 'components/Link';
-import  {Layout}  from 'components/Layout';
-import { userService} from 'pages/services/user.service';
+import { Link }  from 'components/Link';
+import  { Layout }  from 'components/Layout';
+import { userService } from 'pages/services/user.service';
 
 export default Register;
 
@@ -43,6 +43,7 @@ function Register() {
                 router.push('login');
             })
             .catch();
+
       
     }
 
