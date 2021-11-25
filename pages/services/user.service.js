@@ -1,11 +1,12 @@
 import { BehaviorSubject } from 'rxjs';
 import { fetchWrapper } from 'helpers/fetch-wrappers';
 
-const userSubject = new BehaviorSubject(process.browser && JSON.parse(localStorage.getItem('user')));
+const userSubject = new BehaviorSubject(process.browser && JSON.parse(localStorage.getItem('user'))); // we don't use this. 
+
 export const userService = {
     // user: userSubject.asObservable(),
     userData: {},
-    get userValue () { return userSubject.value },
+    get userValue () { return userSubject.value }, // we don't use this. 
     register,
     login,
     setUserValue,

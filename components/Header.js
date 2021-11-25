@@ -26,7 +26,7 @@ function Header(){
             <div className="flex items-center bg-blue-300 p-1 py-2 flex-grow">
                 <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
                 <Image
-                    // onClick={()=>    router.push("/")}
+                    onClick={() => router.push("/")}
                     src="/logo-gophers-art-640-205.png"
                     width={150}
                     height={40}
@@ -60,8 +60,8 @@ function Header(){
                         {/* <p className="font-extrabold md:text-sm">Account</p> */}
                     </div>
                 
-                    {/* <div onClick={()=>router.push("/checkout")} className="relative link flex items-center"> */}
-                    <div className="relative link flex items-center">
+                    <div onClick={()=>router.push("/checkout")} className="relative link flex items-center">
+                    {/* <div className="relative link flex items-center"> */}
                         <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
                             {items.length}
                             {/* 0 */}
