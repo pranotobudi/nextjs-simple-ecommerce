@@ -2,9 +2,11 @@ import { Provider } from 'react-redux'
 import { store } from '../redux/store'
 import '../styles/globals.css'
 import Head from 'next/head';
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
+        <PayPalScriptProvider options= {{"client-id": process.env.paypal_client_id }}>  
         <Provider store={store}>
             <Head>
                 <title>Gophers Art Shop</title>
@@ -14,6 +16,7 @@ const MyApp = ({ Component, pageProps }) => {
             </Head>
           <Component {...pageProps} />
         </Provider>
+        </PayPalScriptProvider>
   )
 }
 
