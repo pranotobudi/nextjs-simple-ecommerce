@@ -16,7 +16,7 @@ function Product({id, title, price, description, category, image, rating}){
 
     return (
         <div className="relative flex flex-col m-5 bg-white z-30 p-10">
-            <Image src={image} height={200} width={200} objectFit="contain" alt={image} />
+            <Image src={image} alt="alt-img" height={200} width={200} objectFit="contain"/>
             <h4 className="my-3 self-center">{title}</h4>
             <div className="flex self-center">
                 {Array(rating).fill().map((_, i)=>(

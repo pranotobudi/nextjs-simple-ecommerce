@@ -28,11 +28,11 @@ function Header(){
                 <Image
                     onClick={() => router.push("/")}
                     src="/logo-gophers-art-640-205.png"
+                    alt="alt image"
                     width={150}
                     height={40}
                     objectFit="contain"
                     className='cursor-pointer'
-                    alt="/logo-gophers-art-640-205.png"
                 />
                 </div>
             

@@ -12,7 +12,7 @@ function Checkout() {
 
     return (
         <div className="bg-gray-100">
-            <script src={`https://www.paypal.com/sdk/js?client-id=${process.env.paypal_client_id}`}></script>
+            {/* <script src={`https://www.paypal.com/sdk/js?client-id=${process.env.paypal_client_id}`}></script> */}
             <Header />
             <main className="lg:flex max-w-screen-2xl mx-auto">
                 {/* Left */}  
