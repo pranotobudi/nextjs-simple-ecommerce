@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { userService} from 'pages/services/user.service';
+import { userService} from 'services/user.service';
 
 export { Layout };
 

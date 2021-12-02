@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectItems, selectTotal } from "redux/basketSlice"
 import CheckoutProduct from "components/CheckoutProduct"
 import {useRouter} from "next/router";
-import { userService } from 'pages/services/user.service';
+import { userService } from 'services/user.service';
 
 function Checkout() {
     const items = useSelector(selectItems);

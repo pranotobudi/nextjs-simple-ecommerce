@@ -1,6 +1,6 @@
 import getConfig from 'next/config';
 
-import { userService } from 'pages/services/user.service';
+import { userService } from 'services/user.service';
 
 const { publicRuntimeConfig } = getConfig();
 

@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/outline";
 import {useSelector} from "react-redux";
 import {selectItems} from "../redux/basketSlice"
-import { userService } from 'pages/services/user.service';
+import { userService } from 'services/user.service';
 import { useRouter } from 'next/router';
 
 function Header(){
