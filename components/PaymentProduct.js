@@ -5,7 +5,7 @@ function PaymentProduct({id, title, price, description, image}) {
     return (
         <div className='grid grid-cols-3'>
             {/* Left */}
-            <Image src={image} height={200} width={200} objectFit="contain" />
+            <Image src={image} height={200} width={200} objectFit="contain" alt={image}/>
             {/* Middle */}
             <div className="col-span-3 mx-5">
                 <p>{title}</p>

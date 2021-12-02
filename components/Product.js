@@ -16,11 +16,11 @@ function Product({id, title, price, description, category, image, rating}){
 
     return (
         <div className="relative flex flex-col m-5 bg-white z-30 p-10">
-            <Image src={image} height={200} width={200} objectFit="contain" />
+            <Image src={image} height={200} width={200} objectFit="contain" alt={image} />
             <h4 className="my-3 self-center">{title}</h4>
             <div className="flex self-center">
                 {Array(rating).fill().map((_, i)=>(
-                    <StarIcon className="h-5 text-yellow-500" />
+                    <StarIcon key={id} className="h-5 text-yellow-500" />
                 ))}
             </div>
             <p className="text-xs my-2 line-clamp-2 self-center">{description}</p>

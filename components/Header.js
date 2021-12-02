@@ -32,6 +32,7 @@ function Header(){
                     height={40}
                     objectFit="contain"
                     className='cursor-pointer'
+                    alt="/logo-gophers-art-640-205.png"
                 />
                 </div>
             
