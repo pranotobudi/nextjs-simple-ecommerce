@@ -25,7 +25,7 @@ export async function getServerSideProps(context){
 //    .then((response) => {
 //   }).catch();
 // then(res=>res.json()); 
-  const response = await fetch(`${process.env.EXTERNAL_HOST}/api/v1/products`)
+  const response = await fetch(`${process.env.EXTERNAL_HOST}/api/v1/products`, {mode: 'cors'})
   .then(res=>res.json()); 
 
   const products = response["data"]
