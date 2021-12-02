@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-      domains: ["localhost", "https://pranotobudi-go-simple-ecomerce.herokuapp.com", "paypal.com", "amplitude.com"]
+      domains: ["localhost", "pranotobudi-go-simple-ecomerce.herokuapp.com", "paypal.com", "amplitude.com"]
   }, 
   env: {
     paypal_client_id: process.env.PAYPAL_CLIENT_ID,
