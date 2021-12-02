@@ -20,7 +20,7 @@ function Product({id, title, price, description, category, image, rating}){
             <h4 className="my-3 self-center">{title}</h4>
             <div className="flex self-center">
                 {Array(rating).fill().map((_, i)=>(
-                    <StarIcon key={id} className="h-5 text-yellow-500" />
+                    <StarIcon key={i} className="h-5 text-yellow-500" />
                 ))}
             </div>
             <p className="text-xs my-2 line-clamp-2 self-center">{description}</p>
