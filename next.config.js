@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-      domains: ["localhost", "fakestoreapi.com"]
+      domains: ["localhost", "fakestoreapi.com", "paypal.com", "amplitude.com"]
   }, 
   env: {
     paypal_client_id: process.env.PAYPAL_CLIENT_ID,
@@ -10,7 +10,7 @@ module.exports = {
     return [
       {
         source: '/api/v1/:path*',
-        destination: 'http://localhost:8080/api/v1/:path*',
+        destination: `${process.env.HOST}+/api/v1/:path*`,
       },
     ]
   },

@@ -20,13 +20,13 @@ function CheckoutProduct({id, title, price, rating, description, category, image
     return (
         <div className='grid grid-cols-5'>
             {/* Left */}
-            <Image src={image} height={200} width={200} objectFit="contain" />
+            <Image src={image} height={200} width={200} objectFit="contain" alt={image} />
             {/* Middle */}
             <div className="col-span-3 mx-5">
                 <p>{title}</p>
                 <div className="flex">
                     {Array(rating).fill().map((_, i)=>(
-                        <StarIcon className="h-5 text-yellow-500" />
+                        <StarIcon key={id} className="h-5 text-yellow-500" />
                     ))}
                     
                 </div>
