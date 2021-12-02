@@ -10,7 +10,7 @@ module.exports = {
     return [
       {
         source: '/api/v1/:path*',
-        destination: `${process.env.HOST}+/api/v1/:path*`,
+        destination: `${process.env.EXTERNAL_HOST}/api/v1/:path*`,
       },
     ]
   },

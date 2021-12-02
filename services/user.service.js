@@ -32,6 +32,6 @@ function login(username, password) {
 
 function register(user) {
     console.log("USER SERVICE REGISTER")
-    return fetchWrapper.post("/api/v1/register", user); // see next.config for full path
+    return fetchWrapper.post(`/api/v1/register`, user); // see next.config for full path
 }
 

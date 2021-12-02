@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import ProductContainer from "../components/ProductContainer";
+import { fetchWrapper } from 'helpers/fetch-wrappers';
 // import {myDummyProducts} from "/public/dummyData"
 export default function Home({products}) {
   return (
@@ -20,7 +21,11 @@ export default function Home({products}) {
 
 
 export async function getServerSideProps(context){
-  const response = await fetch('http://localhost:8080/api/v1/products')
+//   const response = fetchWrapper.get(`http://localhost:8080/api/v1/products`)
+//    .then((response) => {
+//   }).catch();
+// then(res=>res.json()); 
+  const response = await fetch(`${process.env.EXTERNAL_HOST}/api/v1/products`)
   .then(res=>res.json()); 
 
   const products = response["data"]
