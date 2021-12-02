@@ -28,7 +28,7 @@ function Header(){
                 <Image
                     onClick={() => router.push("/")}
                     src="/logo-gophers-art-640-205.png"
-                    alt="alt image"
+                    alt=""
                     width={150}
                     height={40}
                     objectFit="contain"
