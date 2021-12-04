@@ -25,10 +25,19 @@ export async function getServerSideProps(context){
 //    .then((response) => {
 //   }).catch();
 // then(res=>res.json()); 
+  var products
   const response = await fetch(`${process.env.EXTERNAL_HOST}/api/v1/products`)
-  .then(res=>res.json()); 
+  .then(res=>res.json())
+  .then((responseJson)=>{
+    products = responseJson["data"]
+  })
+  .catch((error)=>{
+    products=[]
+    console.log(error)
 
-  const products = response["data"]
+  });
+
+
   console.log("PRODUCTS: ", products)
   
 
