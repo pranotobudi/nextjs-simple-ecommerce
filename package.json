@@ -19,6 +19,7 @@
     "react-hook-form": "^7.19.1",
     "react-redux": "^7.2.5",
     "rxjs": "^7.4.0",
+    "sharp": "^0.29.3",
     "yup": "^0.32.11"
   },
   "devDependencies": {
