@@ -21,6 +21,7 @@ export default function Home({products}) {
 
 
 export async function getServerSideProps(context){
+// this is one of the three unique Next.js functions you can use to fetch data for pre-rendering
 //   const response = fetchWrapper.get(`http://localhost:8080/api/v1/products`)
 //    .then((response) => {
 //   }).catch();
