@@ -2,9 +2,16 @@ import Head from "next/head";
 import Header from "../components/Header";
 import ProductContainer from "../components/ProductContainer";
 import { fetchWrapper } from 'helpers/fetch-wrappers';
+import { useDispatch } from "react-redux"
+import { updateProducts } from "redux/basketSlice";
+
 // import {myDummyProducts} from "/public/dummyData"
 export default function Home({products}) {
-  return (
+    //Push item into redux
+    const dispatch = useDispatch();
+    dispatch(updateProducts(products))
+
+    return (
     <div className="bg-blue-100">
       <Head>
         <link rel="shortcut icon" href="/favicon.png" />
@@ -13,7 +20,8 @@ export default function Home({products}) {
         <Header />
       <main className="max-w-screen-2xl mx-auto">
         {/* Product List */}
-        <ProductContainer productLists={products} />
+        {/* <ProductContainer productLists={products} /> */}
+        <ProductContainer />
       </main>
     </div>
   )
@@ -37,7 +45,6 @@ export async function getServerSideProps(context){
     console.log(error)
 
   });
-
 
   console.log("PRODUCTS: ", products)
   

@@ -3,18 +3,65 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
-import {useSelector} from "react-redux";
-import {selectItems} from "../redux/basketSlice"
+import {useSelector, useDispatch } from "react-redux";
+import {selectItems, updateProducts } from "../redux/basketSlice"
 import { userService } from 'services/user.service';
 import { useRouter } from 'next/router';
+import { useState } from "react";
 
 function Header(){
     const items = useSelector(selectItems);
     const router = useRouter();
+    const [query, setQuery] = useState("");
+    const dispatch = useDispatch();
+
+    console.log("query: ", query)
+
+    function searchOnChange(e){
+        setQuery(e.target.value)
+    }
+
+    function searchOnKeyPress(e){
+        if(e.key === 'Enter'){
+            console.log('enter press here! ')
+            searchQuery(query)       
+        }
+    }
+
+    function searchIconOnClick(e){
+        searchQuery(query)       
+    }
+
+    async function searchQuery(query){
+        console.log("query: ", query)
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              search_term: query,
+            })
+          };
+        
+        var products
+        // const response = await fetch(`${process.env.EXTERNAL_HOST}/api/v1/search`, requestOptions)
+        const response = await fetch(`/api/v1/search`, requestOptions)
+        .then(res=>res.json())
+        .then((responseJson)=>{
+          products = responseJson["data"]
+          dispatch(updateProducts(products))
+          console.log("SEARCH BAR PRODUCT: ", products)
+        })
+        .catch((error)=>{
+          products=[]
+          console.log(error)      
+        });
+      
+    }
 
     function signIn(){
         router.push('login');
     }
+
     function signOut(){
         userService.setUserSignOut();
         router.push('/');
@@ -38,8 +85,8 @@ function Header(){
             
                 {/*search*/}
                 <div className="hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500">
-                <input className="p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4" type="text"/>
-                <SearchIcon className='h-12 p-4'/>
+                <input onChange={(e) => searchOnChange(e)} onKeyPress={(e) => searchOnKeyPress(e)} className="p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4" type="text" />
+                <SearchIcon onClick={ searchIconOnClick } className='h-12 p-4'/>
                 </div>
             
                 {/*Account & basket*/}
